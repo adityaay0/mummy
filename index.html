@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Maa ❤️</title>
+<title>Maa ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
@@ -10,25 +10,38 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #fff6f0, #ffeae0);
+  background: linear-gradient(to bottom, #fff5ee, #ffe6dc);
   text-align: center;
   color: #444;
+  overflow-x: hidden;
 }
 
 /* header */
 h1 {
   margin-top: 40px;
-  font-size: 2rem;
+  animation: fadeIn 2s ease;
 }
 
-/* card */
+/* cards */
 .card {
   background: white;
   margin: 20px auto;
   padding: 20px;
   max-width: 420px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  animation: floatUp 1s ease;
+}
+
+/* animations */
+@keyframes floatUp {
+  from { opacity:0; transform: translateY(30px);}
+  to { opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  from { opacity:0;}
+  to { opacity:1;}
 }
 
 /* button */
@@ -36,91 +49,133 @@ button {
   padding: 12px 18px;
   border: none;
   border-radius: 10px;
-  background: #ff9f80;
+  background: #ff8c66;
   color: white;
   cursor: pointer;
-  margin-top: 15px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
 }
 
 /* hidden */
 .hidden { display: none; }
 
-/* floating flowers */
-.flower {
+/* glowing diyas */
+.diya {
   position: fixed;
   bottom: -20px;
-  font-size: 18px;
-  animation: float 6s linear infinite;
+  font-size: 20px;
+  animation: rise 6s linear infinite;
+  opacity: 0.8;
 }
 
-@keyframes float {
-  to { transform: translateY(-100vh); opacity:0; }
+@keyframes rise {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* heart glow */
+.glow {
+  position: fixed;
+  font-size: 18px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.3);}
+  100% { transform: scale(1);}
 }
 </style>
 </head>
 
 <body>
 
-<h1>For Maa ❤️</h1>
+<h1>Maa ❤️</h1>
 
 <div class="card">
   <p>
-    I don’t say this enough…<br><br>
-    but thank you for everything you do.
+    म्हे कदी-कदी काई नी बोलूं…<br><br>
+    पण आज एक बात कहणी है।
   </p>
 </div>
 
 <div class="card">
   <p>
-    From small things…<br>
-    to the things I didn’t even notice…<br><br>
-    you’ve always been there.
+    थारो ध्यान, थारी चिंता,<br>
+    अर थारो साथ…<br><br>
+    ई सब बिना बोले समझ आवे है।
   </p>
 </div>
 
 <div class="card">
-  <button onclick="showLetter()">Click this Maa 💌</button>
+  <p>
+    म्हे घणी बार गलती करूं…<br>
+    पर थूं कदी हाथ नी छोड़े।<br><br>
+    ई बात म्हारे वास्ते घणी बड़ी है।
+  </p>
+</div>
+
+<div class="card">
+  <button onclick="showLetter()">Click करजो Maa 💌</button>
   <p id="letter" class="hidden">
     Maa,<br><br>
 
-    I may not always express it properly…<br>
-    but I see your efforts.<br><br>
+    म्हे कदी थारा आगे ई बात खुल के नी कही…<br>
+    पण आज कहूं हूँ।<br><br>
 
-    The way you take care of everything…<br>
-    the way you worry…<br>
-    the way you support silently…<br><br>
+    थूं सिर्फ माँ नी…<br>
+    म्हारी ताकत हो।<br><br>
 
-    I know I don’t say thank you enough.<br><br>
+    जब भी कुछ गलत होवे,<br>
+    थारो साथ याद आवे।<br><br>
 
-    But today I just want you to know —<br>
-    I’m really grateful to have you.<br><br>
+    थूं हमेशा साथ रही…<br>
+    बिना कुछ मांगे।<br><br>
 
-    You are my strength… even when I don’t show it.<br><br>
+    म्हे बस ए कहूं हूँ —<br>
+    थां बिना म्हारो कछू भी नी।<br><br>
 
-    — Your son, Aditya
+    — थारो छोरो, Aditya ❤️
   </p>
 </div>
 
 <div class="card">
-  <button onclick="flowers()">One more thing 🌸</button>
+  <button onclick="blessings()">एक और बात 🙏</button>
 </div>
 
 <script>
-// reveal letter
+
+// show letter
 function showLetter(){
   document.getElementById("letter").classList.remove("hidden");
 }
 
-// flowers animation
-function flowers(){
-  for(let i=0;i<40;i++){
-    let f=document.createElement("div");
-    f.className="flower";
-    f.innerText="🌸";
-    f.style.left=Math.random()*100+"vw";
-    document.body.appendChild(f);
+// diya + heart blessing effect
+function blessings(){
+  for(let i=0;i<60;i++){
+    let d=document.createElement("div");
+    d.className="diya";
+    d.innerText="🪔";
+    d.style.left=Math.random()*100+"vw";
+    document.body.appendChild(d);
 
-    setTimeout(()=>f.remove(),6000);
+    setTimeout(()=>d.remove(),6000);
+  }
+
+  for(let i=0;i<20;i++){
+    let h=document.createElement("div");
+    h.className="glow";
+    h.innerText="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.top=Math.random()*100+"vh";
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),4000);
   }
 }
 </script>
